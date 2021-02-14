@@ -28,3 +28,28 @@ Still needs practice, recalling all the details isn't effective.
 * Mozna od razu uruchomic program w tle poprzez komende nazwa_programu &
 * Dalsze szczegoly tu: https://www.notion.so/kosiarz/Linux-eaed4ccbbc8d4ad686efc4a93fd84565
 
+5.XII.2020
+1. Aby przejść z katalogu kota do katalogu ale można wpisać:
+	cd ../../../kot/ma/ale/ # to jest ścieżka względna
+	cd ~/tmp/ukos/kot/ma/ale/ # to jest ścieżka bezwzględna
+2. Z tego samego katalogu tworzymy drzewo katalogów przy wykorzystaniu ścieżki bezwględnej (w tym przykładzie, nic nie stoi na przeszkodzie aby zrobić to przy wykrzystaniu ścieżki relatywnej)
+	mkdir -p ~/tmp/ukos/kot/ma/ale/jan/kowalski
+3. Przenoszenie drzewa katalogów przy wykorzystaniu ścieżki bezwzględnej
+	mv ~/tmp/ukos/kot/ma/ale/ ~/tmp/ukos/ala/i/
+4. Jeśli program nie reaguje na Ctrl+C, a chcemy go ubić to wpisujemy w terminal ps, wyszukujemy numer PID (process identification), a następnie wpisujemy 
+	kill -9 <numer PID> # -9 to sygnał ubicia
+5. Aby wyświetlić pliki zaczynające się od al to używamy komendy:
+	ls | grep ^al # filtry ustalamy wyrażeniami regularnymi
+6. Aby każdy mógł wejść do folderu należy przypisać uprawnienia odczytu i wykonywania, np.
+	chmod 555 folder/
+   Aby grupa mogła wyświetlić zawartość folderu należy ustawić uprawnienia odczytu dla grupy, np. 
+    chmod g=r ala/
+   Aby przypisać właścicielowi pełne prawa należy wpisać, np.
+	chmod u+rwx ala/
+7. Aby utworzyć plik z listą plików i katalogów w bieżącym katalogu należy wpisać
+	ls > lista.txt
+8. Jedyne co mi przychodzi do głowy to złe przypisanie uprawnień.
+9. Tab pozwala na uzupełnianie poleceń
+10. Pierwszy sposób na odpalenie programu z terminala w taki sposób, aby nie blokował konsoli to:
+	nazwa_programu &
+	Drugi sposób polega na normalnym uruchomieniu programu, wpisując jego nazwę w konsoli. Następnie w oknie terminala wciskamy Ctrl+Z i zatrzymujemy program. Potem wywołujemy polecenie jobs, patrzymy na numer programu i wywołujemy go poleceniem bg <numer> (lub bg %<numer>)
