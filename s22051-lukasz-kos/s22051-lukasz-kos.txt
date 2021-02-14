@@ -8,6 +8,7 @@ Still needs practice, recalling all the details isn't effective.
 * Prepare for another workshop about changing access permission of a file on linux
 * Still need to learn linux topography of the filesystem, especially main directories
 
+
 7-8.XI.2020
 * Pliki utworzone przeze mnie w cudzym katalogu sa moja wlasnoscia i vice versa. Jesli wiec odpowiednio przypisze uprawnienia (np. 744) to wlasciciel maszyny nie bedzie w stanie usunac mojego pliku
 * Jesli najpierw usuniemy wszelkie prawa dostepu do katalogu biezacego to nie bedziemy w stanie zmienic uprawnien katalogu nadrzednego z tej pozycji. Trzeba najpierw przejsc (cd) wyzej.
@@ -15,6 +16,7 @@ Still needs practice, recalling all the details isn't effective.
 * Operator > w poleceniu echo zapisuje tresc calego komunikatu jako plik, natomiast operator >> powoduje, ze tresc komunikatu zostaje zapisana w pliku w nowej linii, bez usuwania poprzedniej zawartosci pliku.
 * Minimalne uprawnienie, ktore pozwoli na zobaczenie strony internetowej dla katalogu domowego, folderu public_html oraz pliku .html to uprawnienia do odczytu i wykonania dla pozostalych osob (005).
 * Podczas tworzenia nowego pliku wartosc standardowa dostepu (777 dla katalogu i 666 dla pliku) jest ograniczana przez maske, ktora wywolujemy komenda umask. Wartosc uprawnienia pliku jest koniunkcja logiczna (AND) binarnej wartosci domyslnej i negacji maski (rowniez w postaci binarnej).
+
 
 21-22.XI.2020
 * Polecenie grep jest używane do filtrowania wynikow. Moze byc uzywane poprzez potoki.
@@ -27,6 +29,7 @@ Still needs practice, recalling all the details isn't effective.
 * Domyslnie programy uruchomione w terminalu sa uruchamiane w pierwszym planie (czyli terminal jest zablokowany). Aby moc korzystac z terminala nalezy program zatrzymac, nastepnie wyswietlic liste programow uruchomionych poprzez teminal (jobs), znalezc interesujacy nas numer programu, po czym uruchomic okreslony program poleceniem bg %numer 
 * Mozna od razu uruchomic program w tle poprzez komende nazwa_programu &
 * Dalsze szczegoly tu: https://www.notion.so/kosiarz/Linux-eaed4ccbbc8d4ad686efc4a93fd84565
+
 
 5.XII.2020
 1. Aby przejść z katalogu kota do katalogu ale można wpisać:
@@ -54,6 +57,7 @@ Still needs practice, recalling all the details isn't effective.
 	nazwa_programu &
 	Drugi sposób polega na normalnym uruchomieniu programu, wpisując jego nazwę w konsoli. Następnie w oknie terminala wciskamy Ctrl+Z i zatrzymujemy program. Potem wywołujemy polecenie jobs, patrzymy na numer programu i wywołujemy go poleceniem bg <numer> (lub bg %<numer>)
 
+
 19.XII.2020.
 Licencje wolnego oprogramowania.
 
@@ -74,3 +78,57 @@ Opublikowana na Uniwersytecie w Berkley. Pozwala na modyfikacje kodu źródłowe
 * Apache
 Dawniej Apache Software License. Pozwalała na redystrybucję i wykorzystanie kodu źródłowego programów stworzonych (lub licencjonowanych pod szyldem) Apache Software Foundation. 
 
+
+30.01 - 14.02.2021.
+Powershell
+
+Tab ma w zwyczaju wypełniać linijki UŻYTYMI komendami. Więc jeśli popełniłeś gdzieś błąd to Tab będzie go powielał.
+
+Pomoc do poleceń wywołujemy komendą Get-Help.
+history wywołuje historię wpisanych komend.
+
+O uprawnieniach do wykonania skryptu dowiadujemy się poprzez Get-ExecutionPolicy, ustalamy go dzięki Set-ExecutionPolicy 
+
+Listę modułów wyświetlamy:
+Get-Module -ListAvailable
+
+Listę poleceń zbieramy poprzez Get-Command
+
+Symbole do zastosowania w pisaniu skryptów:
+|	potok (jak w bashu)
+?	Where-Object, czyli funkcja do szukania zmiennych/wartości
+$_	zmienna do operowania na kolekcjach i obiektach
+%	While-Object to pętla while
+& 	wywołuje programy
+
+Zamiast operatorów logicznych znanych z innych języków w PowerShellu wpisuje się parametry (?) np. 
+-ge		większe lub równe (greater equal)
+-like	==
+-or		lub
+
+Pętla for
+For($i = 1; $i -le 10; $i++) { }
+
+Zawartości katalogu wyświetlamy poprzez 
+Get-ChildItem -Path C:\Windows	lub 	ls
+
+Read-Host czyta wejście, a Write-Host wyświetla dane lub obiekt na ekranie.
+
+Wyświetlane dane można zapisać do pliku np. poprzez potok
+| Out-File $env:TEMP\$nazwaPliku
+gdzie poprzez TEMP odnosimy się do folderu w C:\Users\<użytkownik>\AppData\Local\Temp
+
+Pliki można ściągnąć poprzez BITS
+Start-BitsTransfer
+Get-BitsTransfer przedstawia stan transferu. Jeśli status pobrania wyniesie Transferred to job należy zakończyć
+Complete_BitsTransfer - BitsJob $zmienna
+
+Jeśli pobranie pliku będzie od nas wymagać podanie danych logowania i hasła to możemy te dane przypisać do zmiennej poprzez polecenie
+$cred = Get-Credential
+
+Dostępne dyski można wyświetlić poprzez Get-PSDrive. Do listy dysków wliczamy część rejestru systemu Windows, certyfikaty, funkcje, zmienne, aliasy (skróty wykorzystywane przez PS), a nawet GitHub po ustawieniu dostępu do niego.
+
+Obiektami zarządzamy dzięki funkcjom 
+Get-ItemProperty		wyświetla obiekty/właściwości
+Select-Object			zaznacza/wyświetla obiekty kolekcji
+Format-Table -AutoSize	wyświetla wyjście jako tablicę (tutaj dopasowaną do okna)
