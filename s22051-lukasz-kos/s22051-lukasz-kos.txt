@@ -53,3 +53,24 @@ Still needs practice, recalling all the details isn't effective.
 10. Pierwszy sposób na odpalenie programu z terminala w taki sposób, aby nie blokował konsoli to:
 	nazwa_programu &
 	Drugi sposób polega na normalnym uruchomieniu programu, wpisując jego nazwę w konsoli. Następnie w oknie terminala wciskamy Ctrl+Z i zatrzymujemy program. Potem wywołujemy polecenie jobs, patrzymy na numer programu i wywołujemy go poleceniem bg <numer> (lub bg %<numer>)
+
+19.XII.2020.
+Licencje wolnego oprogramowania.
+
+* GNU General Public License (od Projektu GNU) opiera się na czterech wolnościach:
+- wolność uruchamiania programu w dowolnym celu,
+- wolność analizowania, jak program działa i dostosowywania go do swoich potrzeb,
+- wolność rozpowszechniania niezmodyfikowanej kopii programu,
+- wolność udoskonalania programu i publicznego rozpowszechniania własnych ulepszeń, dzięki czemu może z nich skorzystać cała społeczność.
+Jest to licencja wirusowa. Innymi słowy, jakiekolwiek wykorzystanie kodu źródłowego na tej licencji wymusza na firmie udostępnienie całości kodu źródłowego komercyjnego produktu, który wykorzystywał fragment kodu oparty na tej licencji.
+
+Kolejne licencje coraz bardziej liberalizują to radykalne podejście.
+* Lesser General Public License
+Copyleft (kod może być kopiowany i zmieniany). Podobny do GPL z tą różnicą, że biblioteki oparte na tej licencji mogą zostać użyte w programach prawnie zastrzeżonych, ale sam dostęp do kodu źródłowego wykorzystanych bibliotek nie może być utrudniony.
+
+* Berkeley Software Distribution
+Opublikowana na Uniwersytecie w Berkley. Pozwala na modyfikacje kodu źródłowego, rozprowadzanie programu z lub bez dostępu do kodu źródłowego i możliwość włączenia programu (lub jego fragmentów) do zamkniętego oprogramowania pod warunkiem opublikowania listy autorów kodu (za ich pisemną zgodą) i przejścia na licencję BSD.
+
+* Apache
+Dawniej Apache Software License. Pozwalała na redystrybucję i wykorzystanie kodu źródłowego programów stworzonych (lub licencjonowanych pod szyldem) Apache Software Foundation. 
+
